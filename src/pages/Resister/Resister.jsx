@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import Lottieresister from "../../assets/Lottijson/Register.json";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 import { use } from "react";
+import SocialLogIn from "../Shared/SocialLogIn";
 
 const Resister = () => {
   const { createUser } = use(AuthContext);
@@ -30,6 +31,7 @@ const Resister = () => {
             loop={true}
           ></Lottie>
         </div>
+
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <h1 className="text-5xl font-bold">Resister now!</h1>
@@ -57,6 +59,7 @@ const Resister = () => {
                 <button className="btn btn-neutral mt-4">Resister</button>
               </fieldset>
             </form>
+            <SocialLogIn></SocialLogIn>
           </div>
         </div>
       </div>

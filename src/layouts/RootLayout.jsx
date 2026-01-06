@@ -6,7 +6,7 @@ import Footer from "../../../../sports-store-client/src/Component/Footers/Footer
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>
