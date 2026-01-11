@@ -12,7 +12,7 @@ const Banner = () => {
             transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
             src={team1}
             className="max-w-sm rounded-lg shadow-2xl rounded-t-[40px] rounded-br-[40px] border-l-10
-             border-b-10 border-blue-600"
+             border-b-10 border-blue-600 rounded-bl-field"
           />
           <motion.img
             animate={{ x: [170, 220, 170] }}
@@ -24,7 +24,7 @@ const Banner = () => {
             }}
             src={team2}
             className="max-w-sm rounded-lg shadow-2xl rounded-t-[40px] rounded-br-[40px] border-l-10
-             border-b-10 border-blue-600 "
+             border-b-10 border-blue-600 rounded-bl-field "
           />
         </div>
         <div className="flex-1">
