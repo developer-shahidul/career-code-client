@@ -27,9 +27,9 @@ const JobDetails = () => {
   } = jobsData;
   return (
     <div className="mt-25 ">
-      <div className="flex justify-between items-center mb-10">
+      <div className="lg:flex md:flex-row justify-between items-center mb-10">
         <div>
-          <div className="card-title hover:text-[#3c65f5] text-3xl font-bold">
+          <div className="card-title hover:text-[#3c65f5] text-3xl font-bold flex-wrap">
             {responsibilities.map((item, index) => (
               <h2 key={index}>
                 {item} , {""}
@@ -55,7 +55,7 @@ const JobDetails = () => {
 
       <div className="border border-gray-300 mt-10 max-w-4xl mx-auto">
         <div className="divider px-10"></div>
-        <div className="grid grid-cols-2  gap-6 px-10 py-2">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-6 px-10 py-2">
           {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
@@ -76,7 +76,7 @@ const JobDetails = () => {
             </div>
           </div>
         </div>{" "}
-        <div className="grid grid-cols-2  gap-6 px-10 py-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10 py-2">
           {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
@@ -99,7 +99,7 @@ const JobDetails = () => {
             </div>
           </div>
         </div>{" "}
-        <div className="grid grid-cols-2  gap-6 px-10 py-2">
+        <div className="grid  grid-cols-1 md:grid-cols-2   gap-6 px-10 py-2">
           {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
@@ -120,7 +120,7 @@ const JobDetails = () => {
             </div>
           </div>
         </div>{" "}
-        <div className="grid grid-cols-2  gap-6 px-10 py-2">
+        <div className="grid grid-cols-1 md:grid-cols-2   gap-6 px-10 py-2">
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
               <Clock className="h-4 w-4" />
