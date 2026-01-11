@@ -77,7 +77,7 @@ const JobsCard = ({ jobs }) => {
           <div className="text-right ">
             <Link to={`/jobs/${_id}`}>
               <button className="btn btn-outline btn-success group-hover:bg-[#3c65f5] group-hover:text-white">
-                Apply Now
+                Show Details
               </button>
             </Link>
           </div>
