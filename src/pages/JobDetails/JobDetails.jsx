@@ -10,12 +10,13 @@ import {
   Toolbox,
   Watch,
 } from "lucide-react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const JobDetails = () => {
   const jobsData = useLoaderData();
   // console.log(jobsData);
   const {
+    _id,
     jobType,
     status,
     category,
@@ -27,7 +28,7 @@ const JobDetails = () => {
   } = jobsData;
   return (
     <div className="mt-25 ">
-      <div className="lg:flex md:flex-row justify-between items-center mb-10">
+      <div className="lg:flex gap-6 md:flex-row justify-between items-center mb-10">
         <div>
           <div className="card-title hover:text-[#3c65f5] text-3xl font-bold flex-wrap">
             {responsibilities.map((item, index) => (
@@ -47,9 +48,11 @@ const JobDetails = () => {
             </div>
           </div>
         </div>
-        <div>
-          <button className="btn btn-outline btn-success">Apply Now</button>
-        </div>
+        <Link to={`/jobApply/${_id}`}>
+          <button className="btn btn-outline btn-success whitespace-nowrap">
+            Apply Now
+          </button>
+        </Link>
       </div>
       <div className="divider"></div>
 
@@ -75,7 +78,7 @@ const JobDetails = () => {
               <h4>{category}</h4>
             </div>
           </div>
-        </div>{" "}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10 py-2">
           {" "}
           <div className="flex justify-between ">
@@ -98,7 +101,7 @@ const JobDetails = () => {
               <h4>1 - 2 years</h4>
             </div>
           </div>
-        </div>{" "}
+        </div>
         <div className="grid  grid-cols-1 md:grid-cols-2   gap-6 px-10 py-2">
           {" "}
           <div className="flex justify-between ">
@@ -119,7 +122,7 @@ const JobDetails = () => {
               <h4>{applicationDeadline}</h4>
             </div>
           </div>
-        </div>{" "}
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2   gap-6 px-10 py-2">
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
@@ -139,7 +142,7 @@ const JobDetails = () => {
               <h4>{location}</h4>
             </div>
           </div>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );
