@@ -1,7 +1,7 @@
 //
 
 import { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 
 const NavBar = () => {
@@ -15,7 +15,26 @@ const NavBar = () => {
 
   const link = (
     <>
-      <NavLink to="/">Home</NavLink>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      {/* for applicant links, check roules as well */}
+      {user && (
+        <>
+          <li>
+            <Link to="/myApplications">My Applications</Link>
+          </li>
+        </>
+      )}
+
+      {/* for recruiter. check role  as well */}
+      {user && (
+        <>
+          <li>
+            <Link to="/addJob">Add Job</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -50,6 +69,7 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{link}</ul>
       </div>
+
       <div className="navbar-end">
         {user ? (
           <button onClick={handleSignOut} className="btn">

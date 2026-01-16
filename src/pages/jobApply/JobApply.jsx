@@ -7,7 +7,7 @@ const JobApply = () => {
   const { id: jobId } = useParams();
   console.log("apply parameter", jobId);
   const { user } = UseAuth();
-  console.log("user informatin", user);
+  // console.log("user informatin", user);
 
   const handleApplySubmit = (event) => {
     event.preventDefault();
