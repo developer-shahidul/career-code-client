@@ -1,9 +1,19 @@
 import React from "react";
 
 const AddJob = () => {
+  const handleAddJob = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const jobData = Object.fromEntries(formData.entries());
+    console.log(jobData);
+  };
   return (
     <div>
-      <form className="max-w-md mx-auto bg-[#3c65f507] ">
+      <form
+        onSubmit={handleAddJob}
+        className="max-w-md mx-auto bg-[#3c65f507] "
+      >
         <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
           {/* Title */}
           <h2 className="text-2xl font-bold text-center text-indigo-600">
@@ -83,24 +93,28 @@ const AddJob = () => {
               className="btn filter-reset"
               type="radio"
               name="jobType"
+              value="All"
               aria-label="All"
             />
             <input
               className="btn"
               type="radio"
               name="jobType"
+              value="On_Site"
               aria-label="On-Site"
             />
             <input
               className="btn"
               type="radio"
               name="jobType"
+              value="Remote"
               aria-label="Remote"
             />
             <input
               className="btn"
               type="radio"
               name="jobType"
+              value="Hybrid"
               aria-label="Hybrid"
             />
           </div>
@@ -179,7 +193,7 @@ const AddJob = () => {
               </label>
               <select
                 defaultValue="Select a Currency"
-                name="category"
+                name="currency"
                 className="select hover:cursor-pointer input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
               >
                 <option disabled={true}>Select a Currency</option>
@@ -190,23 +204,92 @@ const AddJob = () => {
             </div>
           </div>
         </fieldset>
-        {/* job category */}
+        {/* job description */}
         <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
           {/* Title */}
-          <h2 className="text-xl font-bold text-indigo-600">Post a New Job</h2>
-        </fieldset>{" "}
-        {/* job category */}
-        <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
-          {/* Title */}
-          <h2 className="text-xl font-bold text-indigo-600">Post a New Job</h2>
+          <h2 className="text-xl font-bold text-indigo-600">Job Description</h2>
+
+          <textarea
+            className="textarea  hover:cursor-pointer input input-bordered w-full 
+          focus:border-indigo-400 focus:ring focus:ring-indigo-200"
+            name="description"
+            placeholder="Description"
+          ></textarea>
         </fieldset>
+        {/* job Requirements */}
+        <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
+          {/* Title */}
+          <h2 className="text-xl font-bold text-indigo-600">
+            Job Requirements
+          </h2>
+
+          <textarea
+            className="textarea  hover:cursor-pointer input input-bordered w-full 
+          focus:border-indigo-400 focus:ring focus:ring-indigo-200"
+            name="requirements"
+            placeholder="Requirements (HTML, CSS, JavaScript)"
+          ></textarea>
+        </fieldset>
+        {/* job Responsibilities */}
+        <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
+          {/* Title */}
+          <h2 className="text-xl font-bold text-indigo-600">
+            Job Responsibilities
+          </h2>
+
+          <textarea
+            className="textarea  hover:cursor-pointer input input-bordered w-full 
+          focus:border-indigo-400 focus:ring focus:ring-indigo-200"
+            name="responsibilities"
+            placeholder="Responsibilities (separate by comma)"
+          ></textarea>
+        </fieldset>
+        {/* job HR related info */}
+        <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
+          {/* Title */}
+          <h2 className="text-xl font-bold text-indigo-600">HR Related Info</h2>
+
+          {/* Job Title */}
+          <div>
+            <label className="label">
+              <span className="label-text font-semibold text-gray-700">
+                HR Name
+              </span>
+            </label>
+            <input
+              type="text"
+              name="hr_name"
+              className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
+              placeholder="HR Name"
+              required
+            />
+          </div>
+          {/* Job Title */}
+          <div>
+            <label className="label">
+              <span className="label-text font-semibold text-gray-700">
+                HR Email
+              </span>
+            </label>
+            <input
+              type="text"
+              name="hr_email"
+              className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
+              placeholder="HR Email"
+              required
+            />
+          </div>
+        </fieldset>
+
         {/* Button */}
-        <button
-          type="submit"
-          className="btn w-full bg-linear-to-r from-indigo-500 to-blue-500 text-white border-none hover:from-indigo-600 hover:to-blue-600 transition-all duration-200"
-        >
-          ➕ Post Job
-        </button>
+        <div className="p-6">
+          <button
+            type="submit"
+            className="btn  w-full bg-linear-to-r from-indigo-500 to-blue-500 text-white border-none hover:from-indigo-600 hover:to-blue-600 transition-all duration-200"
+          >
+            Add Job
+          </button>
+        </div>
       </form>
     </div>
   );
