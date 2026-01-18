@@ -1,18 +1,58 @@
-import React from "react";
+import { use } from "react";
+import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddJob = () => {
+  const { user } = use(AuthContext);
+  console.log(user);
   const handleAddJob = (event) => {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
     const jobData = Object.fromEntries(formData.entries());
-    console.log(jobData);
+
+    // process salary range data
+    const { minSalary, maxSalary, currency, ...newJob } = jobData;
+    newJob.salaryRange = { minSalary, maxSalary, currency };
+    console.log(newJob);
+
+    // process requirment
+    const requirementsString = newJob.requirements;
+    const requirementsDurty = requirementsString.split(",");
+    const requirementsClean = requirementsDurty.map((req) => req.trim());
+    newJob.requirements = requirementsClean;
+
+    // process responsibilities
+    newJob.responsibilities = newJob.responsibilities
+      .split(",")
+      .map((res) => res.trim());
+
+    newJob.status = "Active";
+
+    // save job to the database
+    axios
+      .post("http://localhost:3000/jobs", newJob)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your job has been saved and published.",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+    // console.log(requirementsClean);
   };
   return (
     <div>
       <form
         onSubmit={handleAddJob}
-        className="max-w-md mx-auto bg-[#3c65f507] "
+        className="max-w-4xl mx-auto bg-[#3c65f507] "
       >
         <fieldset className="bg-linear-to-br rounded-2xl p-6  space-y-5">
           {/* Title */}
@@ -145,7 +185,7 @@ const AddJob = () => {
           <input
             className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
             type="date"
-            name="date"
+            name="deadline"
             id=""
           />
         </fieldset>
@@ -163,7 +203,7 @@ const AddJob = () => {
               </label>
               <input
                 type="text"
-                name="minSalary"
+                name="min"
                 className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
                 placeholder="Minimum Salary"
                 required
@@ -178,7 +218,7 @@ const AddJob = () => {
               </label>
               <input
                 type="text"
-                name="maxSalary"
+                name="max"
                 className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
                 placeholder="Maximum Salary"
                 required
@@ -259,6 +299,7 @@ const AddJob = () => {
             <input
               type="text"
               name="hr_name"
+              defaultValue={user.displayName}
               className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
               placeholder="HR Name"
               required
@@ -274,6 +315,7 @@ const AddJob = () => {
             <input
               type="text"
               name="hr_email"
+              defaultValue={user.email}
               className="input input-bordered w-full focus:border-indigo-400 focus:ring focus:ring-indigo-200"
               placeholder="HR Email"
               required
