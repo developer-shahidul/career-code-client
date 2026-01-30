@@ -2,13 +2,15 @@
 
 import { Outlet } from "react-router";
 import NavBar from "../pages/Shared/NavBar";
-import Footer from "../../../../sports-store-client/src/Component/Footers/Footer";
+import Footer from "../pages/Shared/Footer";
 
 const RootLayout = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className=" mx-auto">
       <NavBar></NavBar>
-      <Outlet></Outlet>
+      <div className="max-w-7xl mx-auto">
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );

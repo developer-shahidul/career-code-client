@@ -1,151 +1,46 @@
-// import footerlogo from "../../assets/more/13.jpg";
-import logo1 from "../../assets/logo.png";
-import {
-  Youtube,
-  Facebook,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Phone,
-  Mail,
-  MapPin,
-} from "lucide-react";
-
 const Footer = () => {
   return (
-    <div
-      className="mt-10"
-      style={{ backgroundImage: `url($'{footerlogo}')`, objectFit: "cover" }}
-    >
-      <div className="md:flex lg:gap-36 gap-16  space-y-20 md:space-y-0 lg:w-330 pt-24 mx-auto px-2 lg:px-0 pb-12">
-        <div className="w-full">
-          <img className="w-18.75 h-22.5 pb-6" src={logo1} alt="" />
-          <h2 className="text-[45px] text-[#331A15] rancho ">
-            Sports Equipment
-          </h2>
-          <p className="raleway text-xl text-[#1B1A1A] py-7 w-75 md:w-auto">
-            Always ready to be your friend. Come & Contact with us to share your
-            memorable moments, to share with your best companion.
+    <div className="mt-10 ">
+      <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 justify-around ">
+        <aside>
+          <svg
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            className="fill-current"
+          >
+            <path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
+          </svg>
+          <p>
+            ACME Industries Ltd.
+            <br />
+            Providing reliable tech since 1992
           </p>
-          <div className="flex gap-2">
-            <a
-              href="https://facebook.com"
-              className="h-10 w-10"
-              target="_blank"
-            >
-              <Facebook className="h-full w-full" />
-            </a>
-
-            <a
-              href="https://instagram.com"
-              className="h-10 w-10"
-              target="_blank"
-            >
-              <Instagram className="h-full w-full" />
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              className="h-10 w-10"
-              target="_blank"
-            >
-              <Linkedin className="h-full w-full" />
-            </a>
-
-            <a
-              href="https://twitter.com"
-              className=" h-10 w-10"
-              target="_blank"
-            >
-              <Twitter className=" h-full w-full " />
-            </a>
-
-            <a href="https://youtube.com" className="h-10 w-10" target="_blank">
-              <Youtube className="h-full w-full" />
-            </a>
-          </div>
-
-          <h3 className="rancho text-[45px] text-[#331A15] py-8">
-            Get in Touch
-          </h3>
-
-          <div className="space-y-4">
-            <div className="flex gap-6 ">
-              <a href="tel:+880123456789">
-                <Phone className="cursor-pointer w-6 h-6" />
-              </a>
-              <a
-                className="hover:underline text-xl text-[#1B1A1A]"
-                href="tel:01752503268"
-              >
-                01752503268
-              </a>
-            </div>
-
-            <div className="flex gap-6">
-              <a href="mailto:ssshahidulislam71@gmail.com">
-                <Mail className="cursor-pointer w-6 h-6" />
-              </a>
-
-              <a
-                href="mailto:ssshahidulislam71@gmail.com"
-                className="hover:underline text-xl text-[#1B1A1A]"
-              >
-                ssshahidulislam71@gmail.com
-              </a>
-            </div>
-            <div className="flex gap-6">
-              <a href="https://maps.google.com">
-                <MapPin className="cursor-pointer w-6 h-6" />
-              </a>
-
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline text-xl text-[#1B1A1A]"
-              >
-                72, Wall street, mongolkata, sunamgonj
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full content-center">
-          <h2 className="rancho text-[45px] text-[#331A15] mb-8">
-            Connect with Us
-          </h2>
-          <form action="" className="flex flex-col gap-4 ">
-            <input
-              type="text"
-              name="name"
-              required
-              placeholder="Name"
-              className="py-4 pl-3 w-full bg-white rounded-md ring-2 ring-white focus:ring-[#E3B577] outline-0 shadow-xl"
-            />
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="Email"
-              className="py-4 pl-3   bg-white rounded-md ring-2 ring-white focus:ring-[#E3B577] outline-0 shadow-xl"
-            />
-            <textarea
-              className="pl-3 pt-4 pb-24  bg-white rounded-md ring-2 ring-white focus:ring-[#E3B577] outline-0 shadow-xl"
-              name="textarea"
-              placeholder="Message"
-            ></textarea>
-
-            <button
-              type="submit"
-              className=" hover:cursor-pointer rancho text-6 w-fit rounded-[30px] py-2.25
-              px-5.25  border-2 focus:border-[#E3B577] outline-0"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
+        </aside>
+        <nav>
+          <h6 className="footer-title">Services</h6>
+          <a className="link link-hover">Branding</a>
+          <a className="link link-hover">Design</a>
+          <a className="link link-hover">Marketing</a>
+          <a className="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Company</h6>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+          <h6 className="footer-title">Legal</h6>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
+          <a className="link link-hover">Cookie policy</a>
+        </nav>
+      </footer>
     </div>
   );
 };

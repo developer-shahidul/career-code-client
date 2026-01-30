@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import axios, { Axios } from "axios";
 import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { auth } from "../../Firebase/firebase.init";
@@ -25,6 +26,21 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+
+      // jwt secore
+      if (currentUser?.email) {
+        const userData = { email: currentUser.email };
+
+        axios
+          .post("http://localhost:3000/jwt", userData, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          })
+          .catch((error) => console.log(error));
+      }
+      // console.log("user in the auth state change", currentUser);
     });
     return () => unSubscribe();
   }, []);
