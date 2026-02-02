@@ -4,7 +4,7 @@ import { Link } from "react-router";
 //
 const MyPostedJobList = ({ jobsCreatedByPromise }) => {
   const jobs = use(jobsCreatedByPromise);
-  console.log(jobs);
+  // console.log(jobs);
 
   return (
     <div>

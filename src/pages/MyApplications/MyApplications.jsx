@@ -7,6 +7,8 @@ import { myApplicationPromise } from "../../Api/ApplicationApi";
 const MyApplications = () => {
   const { user, loading } = UseAuth();
 
+  // console.log("firebase token", user.accessToken);
+
   if (loading) {
     return (
       <div className="py-20 text-center">
@@ -26,7 +28,10 @@ const MyApplications = () => {
         }
       >
         <ApplicationList
-          myApplicationPromise={myApplicationPromise(user?.email)}
+          myApplicationPromise={myApplicationPromise(
+            user?.email,
+            user?.accessToken,
+          )}
         ></ApplicationList>
       </Suspense>
     </div>
