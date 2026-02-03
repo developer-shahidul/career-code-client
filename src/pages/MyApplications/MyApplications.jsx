@@ -2,12 +2,15 @@ import React, { Suspense } from "react";
 import ApplicationStats from "./ApplicationStats";
 import ApplicationList from "./ApplicationList";
 import UseAuth from "../../Hooks/UseAuth";
-import { myApplicationPromise } from "../../Api/ApplicationApi";
+// import { myApplicationPromise } from "../../Api/ApplicationApi";
+import UseApplicationApi from "../../Api/UseApplicationApi";
 
 const MyApplications = () => {
   const { user, loading } = UseAuth();
 
   // console.log("firebase token", user.accessToken);
+
+  const { myApplicationPromise } = UseApplicationApi();
 
   if (loading) {
     return (
@@ -28,10 +31,7 @@ const MyApplications = () => {
         }
       >
         <ApplicationList
-          myApplicationPromise={myApplicationPromise(
-            user?.email,
-            user?.accessToken,
-          )}
+          myApplicationPromise={myApplicationPromise(user?.email)}
         ></ApplicationList>
       </Suspense>
     </div>
