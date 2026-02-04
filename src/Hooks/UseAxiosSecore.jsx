@@ -8,13 +8,32 @@ const axiosInstance = axios.create({
 });
 
 const UseAxiosSecore = () => {
-  const { user } = use(AuthContext);
+  const { user, signOutUser } = use(AuthContext);
 
-  // axios request interceptor
+  // // Add a request interceptor
   axiosInstance.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${user.accessToken}`;
     return config;
   });
+
+  // Add a response interceptor
+  axiosInstance.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      if (error.status === 401 || error.status === 403) {
+        signOutUser()
+          .then(() => {
+            console.log("signOut user for 401/403 user code");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      return Promise.reject(error);
+    },
+  );
 
   console.log(user);
   return axiosInstance;
