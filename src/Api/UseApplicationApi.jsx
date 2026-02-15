@@ -1,10 +1,10 @@
-import UseAxiosSecore from "../Hooks/UseAxiosSecore";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const UseApplicationApi = () => {
-  const axiosSecore = UseAxiosSecore();
+  const axiosSecure = useAxiosSecure();
   const myApplicationPromise = (email) => {
-    return axiosSecore
-      .get(`applications/applicant?email=${email}`)
+    return axiosSecure
+      .get(`/applications/applicant?email=${email}`)
       .then((res) => res.data);
   };
   return {

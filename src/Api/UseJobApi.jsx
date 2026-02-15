@@ -1,9 +1,9 @@
-import UseAxiosSecore from "../Hooks/UseAxiosSecore";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const UseJobApi = () => {
-  const axiosSecore = UseAxiosSecore();
+  const axiosSecure = useAxiosSecure();
   const jobsCreatedByPromise = (email) => {
-    return axiosSecore
+    return axiosSecure
       .get(`/jobs/applications?email=${email}`)
       .then((res) => res.data);
   };

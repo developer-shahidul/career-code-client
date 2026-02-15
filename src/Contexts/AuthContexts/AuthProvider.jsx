@@ -36,13 +36,17 @@ const AuthProvider = ({ children }) => {
             "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jwt",
             userData,
             {
-              withCredentials: true,
+              // withCredentials: true,
             },
           )
           .then((res) => {
-            console.log(res.data);
+            if (res.data.token) {
+                localStorage.setItem('career-code-token', res.data.token);
+            }
           })
           .catch((error) => console.log(error));
+      } else {
+        localStorage.removeItem('career-code-token');
       }
       // console.log("user in the auth state change", currentUser);
     });
@@ -62,6 +66,7 @@ const AuthProvider = ({ children }) => {
 
   const signOutUser = () => {
     setLoading(true);
+    localStorage.removeItem('career-code-token');
     return signOut(auth);
   };
 
