@@ -4,9 +4,9 @@ import HotJobs from "./HotJobs";
 import { Suspense } from "react";
 
 const Home = () => {
-  const jobsPromise = fetch("http://localhost:3000/jobs").then((res) =>
-    res.json()
-  );
+  const jobsPromise = fetch(
+    "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs",
+  ).then((res) => res.json());
   return (
     <div>
       <Banner></Banner>

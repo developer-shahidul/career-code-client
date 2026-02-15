@@ -27,7 +27,9 @@ const Router = createBrowserRouter([
         path: "/jobs/:id",
         Component: JobDetails,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(
+            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs/${params.id}`,
+          ),
       },
       {
         path: "/jobApply/:id",
@@ -37,7 +39,9 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/jobs/${params.id}`),
+          fetch(
+            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs/${params.id}`,
+          ),
       },
       {
         path: "/myApplications",
@@ -55,7 +59,9 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/applications/job/${params.job_id}`),
+          fetch(
+            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/applications/job/${params.job_id}`,
+          ),
       },
       {
         path: "/addJob",

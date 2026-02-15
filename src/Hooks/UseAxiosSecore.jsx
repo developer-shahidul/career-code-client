@@ -3,7 +3,7 @@ import { use } from "react";
 import { AuthContext } from "../Contexts/AuthContexts/AuthContext";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app",
   withCredentials: true,
 });
 

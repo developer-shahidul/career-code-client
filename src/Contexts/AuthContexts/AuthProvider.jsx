@@ -32,9 +32,13 @@ const AuthProvider = ({ children }) => {
         const userData = { email: currentUser.email };
 
         axios
-          .post("http://localhost:3000/jwt", userData, {
-            withCredentials: true,
-          })
+          .post(
+            "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jwt",
+            userData,
+            {
+              withCredentials: true,
+            },
+          )
           .then((res) => {
             console.log(res.data);
           })

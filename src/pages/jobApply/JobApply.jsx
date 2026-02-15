@@ -24,7 +24,10 @@ const JobApply = () => {
     };
 
     axios
-      .post("http://localhost:3000/applications", application)
+      .post(
+        "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/applications",
+        application,
+      )
       .then((result) => {
         console.log(result);
         if (result.data.insertedId) {
