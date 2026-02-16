@@ -27,9 +27,7 @@ const Router = createBrowserRouter([
         path: "/jobs/:id",
         Component: JobDetails,
         loader: ({ params }) =>
-          fetch(
-            `https://career-code-server-lake.vercel.app//jobs/${params.id}`,
-          ),
+          fetch(`https://career-code-server-lake.vercel.app/jobs/${params.id}`),
       },
       {
         path: "/jobApply/:id",
@@ -39,9 +37,7 @@ const Router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://career-code-server-lake.vercel.app//jobs/${params.id}`,
-          ),
+          fetch(`https://career-code-server-lake.vercel.app/jobs/${params.id}`),
       },
       {
         path: "/myApplications",
@@ -60,7 +56,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://career-code-server-lake.vercel.app//applications/job/${params.job_id}`,
+            `https://career-code-server-lake.vercel.app/applications/job/${params.job_id}`,
           ),
       },
       {

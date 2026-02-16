@@ -5,8 +5,8 @@ import { AuthContext } from "../Contexts/AuthContexts/AuthContext";
 import { useNavigate } from "react-router";
 
 const axiosInstance = axios.create({
-  baseURL: "https://career-code-server-lake.vercel.app/",
-  withCredentials: true,
+  baseURL: "https://career-code-server-lake.vercel.app",
+  // withCredentials: true,
 });
 
 const useAxiosSecure = () => {
@@ -17,10 +17,10 @@ const useAxiosSecure = () => {
     const requestInterceptor = axiosInstance.interceptors.request.use(
       (config) => {
         const token = localStorage.getItem("career-code-token");
-        // console.log('request stopped by interceptor', token)
-        if (token) {
-          config.headers.authorization = `Bearer ${token}`;
-        }
+        console.log("Request Interceptor: Token found?", !!token); // Debug log
+
+        config.headers.authorization = `Bearer ${token}`;
+
         return config;
       },
       function (error) {

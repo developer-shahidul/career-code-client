@@ -11,7 +11,7 @@ const ViewApplications = () => {
     // console.log(e.target.value, applications);
     axios
       .patch(
-        `https://career-code-server-lake.vercel.app//applications/${app_id}`,
+        `https://career-code-server-lake.vercel.app/applications/${app_id}`,
         {
           status: e.target.value,
         },

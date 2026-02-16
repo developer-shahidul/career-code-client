@@ -5,4 +5,23 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/jwt': {
+        target: 'https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/jobs': {
+        target: 'https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/applications': {
+        target: 'https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

@@ -6,8 +6,8 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import axios, { Axios } from "axios";
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import { auth } from "../../Firebase/firebase.init";
 
@@ -32,15 +32,18 @@ const AuthProvider = ({ children }) => {
         const userData = { email: currentUser.email };
 
         axios
-          .post("https://career-code-server-lake.vercel.app//jwt", userData, {
+          .post("https://career-code-server-lake.vercel.app/jwt", userData, {
             // withCredentials: true,
           })
           .then((res) => {
+            console.log("JWT response:", res.data); // Debug log
             if (res.data.token) {
               localStorage.setItem("career-code-token", res.data.token);
+            } else {
+              console.warn("Token not found in response data");
             }
           })
-          .catch((error) => console.log(error));
+          .catch((error) => console.error("JWT Error:", error));
       } else {
         localStorage.removeItem("career-code-token");
       }

@@ -1,4 +1,6 @@
-import { motion } from "motion/react";
+/* eslint-disable no-unused-vars */
+import { motion } from "framer-motion";
+/* eslint-enable no-unused-vars */
 import team1 from "../../assets/team/team1.jpg";
 import team2 from "../../assets/team/team2.jpg";
 
