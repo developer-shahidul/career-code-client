@@ -28,7 +28,7 @@ const Router = createBrowserRouter([
         Component: JobDetails,
         loader: ({ params }) =>
           fetch(
-            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs/${params.id}`,
+            `https://career-code-server-lake.vercel.app//jobs/${params.id}`,
           ),
       },
       {
@@ -40,7 +40,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs/${params.id}`,
+            `https://career-code-server-lake.vercel.app//jobs/${params.id}`,
           ),
       },
       {
@@ -60,7 +60,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/applications/job/${params.job_id}`,
+            `https://career-code-server-lake.vercel.app//applications/job/${params.job_id}`,
           ),
       },
       {

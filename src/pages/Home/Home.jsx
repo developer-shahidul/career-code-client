@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 const Home = () => {
   const jobsPromise = fetch(
-    "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jobs",
+    "https://career-code-server-lake.vercel.app//jobs",
   ).then((res) => res.json());
   return (
     <div>

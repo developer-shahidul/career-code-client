@@ -25,7 +25,7 @@ const JobApply = () => {
 
     axios
       .post(
-        "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/applications",
+        "https://career-code-server-lake.vercel.app//applications",
         application,
       )
       .then((result) => {

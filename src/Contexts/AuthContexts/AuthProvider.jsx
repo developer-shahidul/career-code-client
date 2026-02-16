@@ -32,21 +32,17 @@ const AuthProvider = ({ children }) => {
         const userData = { email: currentUser.email };
 
         axios
-          .post(
-            "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app/jwt",
-            userData,
-            {
-              // withCredentials: true,
-            },
-          )
+          .post("https://career-code-server-lake.vercel.app//jwt", userData, {
+            // withCredentials: true,
+          })
           .then((res) => {
             if (res.data.token) {
-                localStorage.setItem('career-code-token', res.data.token);
+              localStorage.setItem("career-code-token", res.data.token);
             }
           })
           .catch((error) => console.log(error));
       } else {
-        localStorage.removeItem('career-code-token');
+        localStorage.removeItem("career-code-token");
       }
       // console.log("user in the auth state change", currentUser);
     });
@@ -66,7 +62,7 @@ const AuthProvider = ({ children }) => {
 
   const signOutUser = () => {
     setLoading(true);
-    localStorage.removeItem('career-code-token');
+    localStorage.removeItem("career-code-token");
     return signOut(auth);
   };
 

@@ -5,8 +5,8 @@ import { AuthContext } from "../Contexts/AuthContexts/AuthContext";
 import { useNavigate } from "react-router";
 
 const axiosInstance = axios.create({
-  baseURL: "https://career-code-server-grd1ju1tj-shaidul-portfollio.vercel.app",
-  // withCredentials: true,
+  baseURL: "https://career-code-server-lake.vercel.app/",
+  withCredentials: true,
 });
 
 const useAxiosSecure = () => {
