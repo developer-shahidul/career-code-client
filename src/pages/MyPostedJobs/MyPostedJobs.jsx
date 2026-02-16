@@ -1,6 +1,6 @@
 import { Suspense, use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
-import MyPostedJobList from "./myPostedJobList";
+import MyPostedJobList from "./MyPostedJobList";
 // import { jobsCreatedByPromise } from "../../Api/JobApi";
 import UseJobApi from "../../Api/UseJobApi";
 
