@@ -59,7 +59,6 @@ const JobDetails = () => {
       <div className="border border-gray-300 mt-10 max-w-4xl mx-auto">
         <div className="divider px-10"></div>
         <div className="grid grid-cols-1 md:grid-cols-2  gap-6 px-10 py-2">
-          {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
               <Factory className="h-4 w-4" />
@@ -80,7 +79,6 @@ const JobDetails = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-10 py-2">
-          {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
               <CircleDollarSign className="h-4 w-4" />
@@ -103,7 +101,6 @@ const JobDetails = () => {
           </div>
         </div>
         <div className="grid  grid-cols-1 md:grid-cols-2   gap-6 px-10 py-2">
-          {" "}
           <div className="flex justify-between ">
             <div className="text-[#a0abb8] flex gap-2 items-center">
               <Toolbox className="h-4 w-4" />

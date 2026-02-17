@@ -1,5 +1,3 @@
-//
-
 import Lottie from "lottie-react";
 import Lottieresister from "../../assets/Lottijson/Register.json";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
