@@ -1,5 +1,5 @@
 import { use } from "react";
-import JobsCard from "../Shared/jobsCard";
+import JobsCard from "../Shared/JobsCard";
 
 const HotJobs = ({ jobsPromise }) => {
   const jobs = use(jobsPromise);
