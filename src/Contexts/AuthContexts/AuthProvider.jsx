@@ -33,14 +33,14 @@ const AuthProvider = ({ children }) => {
 
         axios
           .post("https://career-code-server-lake.vercel.app/jwt", userData, {
-            // withCredentials: true,
+            withCredentials: true,
           })
           .then((res) => {
-            console.log("JWT response:", res.data); // Debug log
+            // console.log("JWT response:", res.data); // Debug log
             if (res.data.token) {
               localStorage.setItem("career-code-token", res.data.token);
             } else {
-              console.warn("Token not found in response data");
+              // console.warn("Token not found in response data");
             }
           })
           .catch((error) => console.error("JWT Error:", error));
