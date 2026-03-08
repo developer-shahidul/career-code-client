@@ -1,7 +1,7 @@
 import axios from "axios";
-import { use } from "react";
 import { AuthContext } from "../Contexts/AuthContexts/AuthContext";
 import { useNavigate } from "react-router";
+import UseAuth from "./UseAuth";
 
 const axiosInstance = axios.create({
   baseURL: "https://career-code-server-lake.vercel.app",
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 });
 
 const useAxiosSecure = () => {
-  const { signOutUser, user } = use(AuthContext);
+  const { signOutUser, user } = UseAuth();
   const navigate = useNavigate();
 
   axiosInstance.interceptors.request.use((config) => {
