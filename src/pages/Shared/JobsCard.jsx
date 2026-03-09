@@ -65,7 +65,7 @@ const JobsCard = ({ jobs }) => {
             {description}
           </p>
           <div className="card-actions justify-end mt-7 mb-6 px-1.75 py-2.5 ">
-            {requirements.map((item, index) => (
+            {requirements?.map((item, index) => (
               <div
                 key={index}
                 className="badge badge-outline bg-[#eff3fc] border-none hover:text-[#3c65f5]"

@@ -24,7 +24,7 @@ const MyPostedJobList = ({ jobsCreatedByPromise }) => {
           </thead>
           <tbody>
             {/* rows  */}
-            {jobs.map((job, index) => (
+            {jobs?.map((job, index) => (
               <tr key={job._id}>
                 <th>{index + 1}</th>
                 <td>{job.jobTitle}</td>

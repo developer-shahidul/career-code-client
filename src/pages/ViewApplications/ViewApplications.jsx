@@ -49,7 +49,7 @@ const ViewApplications = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {applications.map((application) => (
+            {applications?.map((application) => (
               <tr key={application._id}>
                 <th>1</th>
                 <td>{application.applicant}</td>

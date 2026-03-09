@@ -56,7 +56,7 @@ const JobCategoriesCarousel = () => {
           onMouseLeave={handleMouseUpOrLeave}
           className="flex  gap-4  overflow-x-hidden py-4"
         >
-          {categories.map((item, index) => (
+          {categories?.map((item, index) => (
             <div key={index} className="shrink-0  ">
               <div
                 className="flex gap-3 justify-center items-center border border-gray-300 hover:shadow-lg

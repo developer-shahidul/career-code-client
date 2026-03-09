@@ -13,8 +13,8 @@ const HotJobs = ({ jobsPromise }) => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-        {jobs.map((jobs) => (
-          <JobsCard key={jobs._id} jobs={jobs}></JobsCard>
+        {jobs?.map((job) => (
+          <JobsCard key={job._id} jobs={job}></JobsCard>
         ))}
       </div>
     </div>

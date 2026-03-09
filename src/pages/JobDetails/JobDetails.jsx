@@ -31,7 +31,7 @@ const JobDetails = () => {
       <div className="lg:flex gap-6 md:flex-row justify-between items-center mb-10">
         <div>
           <div className="card-title hover:text-[#3c65f5] text-3xl font-bold flex-wrap">
-            {responsibilities.map((item, index) => (
+            {responsibilities?.map((item, index) => (
               <h2 key={index}>
                 {item} , {""}
               </h2>
