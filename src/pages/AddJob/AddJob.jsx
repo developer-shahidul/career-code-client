@@ -34,6 +34,7 @@ const AddJob = () => {
     axios
       .post("https://career-code-server-lake.vercel.app/jobs", newJob)
       .then((res) => {
+        console.log(res.data); // console.log করে সত্যিই insertedId আছে কি না দেখুন
         if (res.data.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -42,10 +43,20 @@ const AddJob = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Failed to save job",
+          });
         }
-        console.log(res.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Server not running!",
+        });
+      });
     // console.log(requirementsClean);
   };
   return (
