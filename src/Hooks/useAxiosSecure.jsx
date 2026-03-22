@@ -1,8 +1,7 @@
 import axios from "axios";
 import { AuthContext } from "../Contexts/AuthContexts/AuthContext";
 import { useNavigate } from "react-router";
-import UseAuth from "./UseAuth";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const axiosInstance = axios.create({
   baseURL: "https://career-code-server-lake.vercel.app",
@@ -13,25 +12,37 @@ const useAxiosSecure = () => {
   const { signOutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  axiosInstance.interceptors.request.use((config) => {
-    config.headers.authorization = `Bearer ${user?.accessToken}`;
-    return config;
-  });
+  useEffect(() => {
+    const requestInterceptor = axiosInstance.interceptors.request.use(
+      (config) => {
+        const token = user?.accessToken;
+        if (token) {
+          config.headers.authorization = `Bearer ${token}`;
+        }
+        return config;
+      },
+    );
 
-  // interrupts 401 & 403 status
-  axiosInstance.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    async (error) => {
-      // for 401 or 403 logout the user and move the user to the login
-      if (error?.response?.status === 401 || error?.response?.status === 403) {
-        await signOutUser();
-        navigate("/login");
-      }
-      return Promise.reject(error);
-    },
-  );
+    const responseInterceptor = axiosInstance.interceptors.response.use(
+      (response) => response,
+      async (error) => {
+        if (
+          error?.response?.status === 401 ||
+          error?.response?.status === 403
+        ) {
+          await signOutUser();
+          navigate("/signIn");
+        }
+        return Promise.reject(error);
+      },
+    );
+
+    // cleanup: remove old interceptors on re-render
+    return () => {
+      axiosInstance.interceptors.request.eject(requestInterceptor);
+      axiosInstance.interceptors.response.eject(responseInterceptor);
+    };
+  }, [user, signOutUser, navigate]);
 
   return axiosInstance;
 };

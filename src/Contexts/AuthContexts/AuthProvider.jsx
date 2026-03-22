@@ -25,9 +25,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
 
-      // jwt secore
       if (currentUser?.email) {
         const userData = { email: currentUser.email };
 
@@ -35,19 +33,17 @@ const AuthProvider = ({ children }) => {
           .post("https://career-code-server-lake.vercel.app/jwt", userData, {
             withCredentials: true,
           })
-          .then((res) => {
-            // console.log("JWT response:", res.data); // Debug log
-            if (res.data.token) {
-              localStorage.setItem("career-code-token", res.data.token);
-            } else {
-              // console.warn("Token not found in response data");
-            }
+          .then(() => {
+            console.log("JWT cookie set successfully");
+            setLoading(false);
           })
-          .catch((error) => console.error("JWT Error:", error));
+          .catch((error) => {
+            console.error("JWT Error:", error);
+            setLoading(false);
+          });
       } else {
-        localStorage.removeItem("career-code-token");
+        setLoading(false);
       }
-      // console.log("user in the auth state change", currentUser);
     });
     return () => unSubscribe();
   }, []);
