@@ -1,5 +1,3 @@
-import React from "react";
-
 const ApplicationRow = ({ application, index }) => {
   //   console.log(application);
   const { company, title, company_logo } = application;

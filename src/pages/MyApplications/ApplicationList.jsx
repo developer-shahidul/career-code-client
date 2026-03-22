@@ -14,7 +14,7 @@ const ApplicationList = ({ myApplicationPromise }) => {
           <thead>
             <tr>
               <th>
-                <label>No </label>
+                <label>No. </label>
               </th>
               <th>Name</th>
               <th>Job</th>
